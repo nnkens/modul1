@@ -9,11 +9,16 @@ public  class  AppMahasiswa  {
 		ArrayList<String>  alamatAsals  	=  new  ArrayList<>();
 		ArrayList<String>  noTelps  		=  new  ArrayList<>();
 		ArrayList<String>  jenisKelamins  	=  new  ArrayList<>();
-		Scanner scanMenu 	=  new  Scanner(System.in);
-		Scanner scan 		=  new  Scanner(System.in);
-		String nomorInduk		= "";
-		String kodeProgStudi	= "";
-		String namaprogStudi 	= "";
+		Scanner scanMenu 					=  new  Scanner(System.in);
+		Scanner scan 						=  new  Scanner(System.in);
+		StringBuffer nomorInduk				=  new StringBuffer("");
+		StringBuffer kodeProgStudi			=  new StringBuffer("");
+		StringBuffer namaprogStudi			=  new StringBuffer("");
+		StringBuffer nama					=  new StringBuffer("");
+		StringBuffer alamatTinggal			=  new StringBuffer("");
+		StringBuffer alamatAsal				=  new StringBuffer("");
+		StringBuffer noTelp					=  new StringBuffer("");
+		StringBuffer jenisKelamin			=  new StringBuffer("");
 		byte menu = 0;
         do
         {
@@ -32,48 +37,48 @@ public  class  AppMahasiswa  {
 			case 1 :
 				System.out.println(" ==== Entry Data Mahasiswa ==== ");
 				System.out.println("Masukkan NIM :");
-				nomorInduk 			= scan.nextLine();
-				String[] splitNim 		= nomorInduk.split("\\.");
+				nomorInduk.replace(0, nomorInduk.toString().length(), scan.nextLine());
+				String[] splitNim 		= nomorInduk.toString().split("\\.");
 				try{
-					kodeProgStudi  	= splitNim[0];
+					kodeProgStudi.replace(0, kodeProgStudi.toString().length(), splitNim[0]);
 				} catch (ArrayIndexOutOfBoundsException e) {
 					System.out.println("Format Tidak Sesuai (XXX.YYYY.XX)");
 					menu  			= 0;
 					continue;
 				}
 
-				if (kodeProgStudi.equals("A11")) {
-					namaprogStudi = "Tekhnik Informatika (S1)";
-				}else if (kodeProgStudi.equals("A12")) {
-					namaprogStudi = "Sistem Informasi (S1)";
-				}else if (kodeProgStudi.equals("A13")) {
-					namaprogStudi = "Teknik Informatika (D3)";
-				}else if (kodeProgStudi.equals("A14")) {
-					namaprogStudi = "Sistem Informasi (D3)";
+				if (kodeProgStudi.toString().equals("A11")) {
+					namaprogStudi.replace(0, namaprogStudi.toString().length(), "Tekhnik Informatika (S1)");
+				}else if (kodeProgStudi.toString().equals("A12")) {
+					namaprogStudi.replace(0, namaprogStudi.toString().length(), "Sistem Informasi (S1)");
+				}else if (kodeProgStudi.toString().equals("A13")) {
+					namaprogStudi.replace(0, namaprogStudi.toString().length(), "Tekhnik Informatika (D3)");
+				}else if (kodeProgStudi.toString().equals("A14")) {
+					namaprogStudi.replace(0, namaprogStudi.toString().length(), "Sistem Informasi (D3)");
 				}
 				
 				System.out.println("Masukkan Nama Lengkap:");
-				String nama  =  scan.nextLine();
+				nama.replace(0, nama.toString().length(), scan.nextLine());
 				
 				System.out.println("Masukkan Alamat Tinggal (Jalan, Kota, Propinsi):");
-				String alamatTinggal  =  scan.nextLine();
+				alamatTinggal.replace(0, alamatTinggal.toString().length(), scan.nextLine());
 				
 				System.out.println("Masukkan Alamat Asal Mahasiswa (Jalan, Kota, Propinsi):");
-				String alamatAsal  =  scan.nextLine();
+				alamatAsal.replace(0, alamatAsal.toString().length(), scan.nextLine());
 				
 				System.out.println("No Telp / Hp :");
-				String noTelp  =  scan.nextLine();
+				noTelp.replace(0, noTelp.toString().length(), scan.nextLine());
 				
 				System.out.println("Jenis Kelamin (Pria/Wanita) :");
-				String jenisKelamin  =  scan.nextLine();;
+				jenisKelamin.replace(0, jenisKelamin.toString().length(), scan.nextLine());
 				
-				nomorInduks.add(nomorInduk);
-				namaprogStudis.add(namaprogStudi);
-				namas.add(nama);
-				alamatTinggals.add(alamatTinggal);
-				alamatAsals.add(alamatAsal);
-				noTelps.add(noTelp);
-				jenisKelamins.add(jenisKelamin);
+				nomorInduks.add(nomorInduk.toString());
+				namaprogStudis.add(namaprogStudi.toString());
+				namas.add(nama.toString());
+				alamatTinggals.add(alamatTinggal.toString());
+				alamatAsals.add(alamatAsal.toString());
+				noTelps.add(noTelp.toString());
+				jenisKelamins.add(jenisKelamin.toString());
 				
 				System.out.println(nomorInduk+" Berhasil disimpan...");
 				menu = 0;
@@ -82,11 +87,11 @@ public  class  AppMahasiswa  {
 			case 2 :
 				System.out.println(" ==== Cari Data Mahasiswa ==== ");
 				System.out.println(" ====    Masukkan NIM     ==== ");
-				nomorInduk = scan.nextLine();
+				String getNim = scan.nextLine();
 				System.out.println("=========================================================");
 				byte i = 0;
 				for(String  x  : nomorInduks){
-					if (x.equals(nomorInduk)){
+					if (x.equals(getNim)){
 						System.out.println("Data ditemukan ....");
 						System.out.println("=========================================================");
 						System.out.println("NIM             :"+nomorInduks.get(i));
