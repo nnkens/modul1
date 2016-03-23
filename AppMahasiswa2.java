@@ -90,7 +90,7 @@ public  class  AppMahasiswa2  {
 		noTelps.add(noTelp.toString());
 		jenisKelamins.add(jenisKelamin.toString());
 		
-		System.out.println(nomorInduk+" Berhasil disimpan...");
+		System.out.println("Data Berhasil disimpan...");
 		showMenu();
 	}
 	
